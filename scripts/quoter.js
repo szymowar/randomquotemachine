@@ -5,7 +5,7 @@ function ready(fn) {
     document.addEventListener('DOMContentLoaded', fn);
   }
 }
-function starter(){
+
     var quotes = {
         a : "abcd",
         b : "bcda",
@@ -13,28 +13,31 @@ function starter(){
         d : "stolec",
         e : "bolek"
 }
+function starter(){
 document.getElementById("btn-qt").onclick = displayQuote;
 document.getElementById("btn-tw").onclick = tweetQuote;
+}
 //getRandomInt returns random number from 0 to max;
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
-
 //getRandom returns random quote from quotes set;
-function getRandom(quotes){
+function getRandomQuotes(quotes){
     var keyArr = Object.keys(quotes);
     var keyArrLen = keyArr.length;
-    return quotes[keyArr[getRandomInt(keyArrLen)]];
+    var quoteIndex = keyArr[getRandomInt(keyArrLen)]
+    return quotes[quoteIndex];
 }
-var quote_index = getRandom(quotes);
 //displayQuote changes quote displayed;
 function displayQuote() {
-    document.getElementById("qtholder").innerHTML = quote_index;
+    document.getElementById("qtholder").innerHTML = getRandomQuotes(quotes);
 }
-
+//tweetQuote tweets quote
 function tweetQuote(){
-    var twtLink = 'http://twitter.com/home?status=' +encodeURIComponent(quote_index);
+    var twtext = document.getElementById("qtholder").innerHTML;
+    var twtLink = 'http://twitter.com/home?status=' +(twtext);
+    console.log(twtLink);
  window.open(twtLink,'_blank');
 }
-}
+
 ready(starter);
