@@ -4,11 +4,9 @@ function ready(fn) {
   } else {
     document.addEventListener('DOMContentLoaded', fn);
   }
-}
-}
-//getRandom returns random quote from quotes set;
+};
+
 function getRandomQuotes(){
-    var currentQuote = "", currentAuthor = ""
     var request = new XMLHttpRequest();
     request.open('GET', "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous&count=1", true);
     request.setRequestHeader("X-Mashape-Key", "A6EFpJ2oCQmshDaNl1pgKgMEfT9pp1DzSYwjsnrign0RheBPlH")
@@ -25,12 +23,17 @@ function getRandomQuotes(){
       };
     request.send();
 }
-//displayQuote changes quote displayed;
-
 //tweetQuote tweets quote
 function tweetQuote(){
-    var twtext = document.getElementById("qtholder").innerHTML;
-    var twtLink = 'http://twitter.com/home?status=' +(twtext);
+    var quote = document.getElementById("qtholder").innerHTML;
+    var author = document.getElementById("author").innerHTML;
+    var twtext = quote + " - " + author;
+    if(twtext.length > 140){
+        //extra 3 characters for "..."
+        var twtextCut = quote.length - (twtext.length - 137);
+        twtext = quote.slice(0, twtextCut) +"... - " + author;
+    }
+    var twtLink = 'http://twitter.com/home?status=' + (twtext);
     window.open(twtLink,'_blank');
 }
 function starter(){
