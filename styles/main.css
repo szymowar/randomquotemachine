@@ -1,11 +1,31 @@
 body {
-    background: green;
+    background: white;
 }
+
 #center-block {
-    border: 5px solid black;
-    width: 300px;
-    height: 200px;
-    background-color: blue;
-    display: block;
+    border: 0;
+    border-radius:5%;
+    padding: 40px;
+    width: 30%;
+    height: 30%;
+    background-color: pink;
     margin: auto;
+    margin-top: 30px;
+    box-shadow: 10px 10px 5px grey;
+}
+
+#btn-qt{
+    float:left;
+}
+
+#btn-tw{
+    float: right;
+}
+
+#qtholder{
+    display: block;
+}
+
+#author {
+    color: tomato;
 }
