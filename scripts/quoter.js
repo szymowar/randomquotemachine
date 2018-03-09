@@ -17,7 +17,7 @@ function errorHandle(status) {
         document.getElementById("er-disc").innerHTML = "Authentication error occurred (" + status + ")";
         document.getElementById("er-disc").style.display = "inline-block";
     }
-    if (status == 404){
+    else if (status == 404){
         document.getElementById("er-disc").innerHTML = "Source link seems to be empty (" + status + ")";
         document.getElementById("er-disc").style.display = "inline-block";
     }
