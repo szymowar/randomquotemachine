@@ -1,31 +1,85 @@
 body {
-    background: white;
+    background: #E1E8ED;
+    font-size: 100%
 }
 
 #center-block {
-    border: 0;
+
     border-radius:5%;
-    padding: 40px;
+    padding: 20px;
     width: 30%;
     height: 30%;
-    background-color: pink;
+    background-color:  #55ACEE;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 10%;
     box-shadow: 10px 10px 5px grey;
 }
 
 #btn-qt{
-    float:left;
+    border: none;
+    background-color: #292F33;
+    border-radius: 5px;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+
 }
 
-#btn-tw{
-    float: right;
+#btn-qt:hover {
+    opacity: 0.7;
+
 }
 
 #qtholder{
-    display: block;
+    margin: auto;
+    color: #FFFFFF;
+    font-family: sans-serif;
+    font: verdana;
+    font-size: 2em;
+    font-style: italic;
 }
 
 #author {
-    color: tomato;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: #CCD6DD;
+}
+
+#er-disc {
+    display: none;
+    border: 1px solid;
+    border-radius: 5%;
+    border-color: tomato;
+    padding: 10px;
+    box-shadow: 5px 5px 3px grey;
+}
+
+.cont {
+    display: block;
+
+}
+
+.icons {
+    display: inline-block;
+}
+
+.fa {
+    border: none;
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-twitter {
+    background: #292F33;
+    color: white;
+    border-radius: 50%;
 }

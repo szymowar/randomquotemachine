@@ -4,15 +4,27 @@
     <meta charset="utf-8">
     <title>Random Quote Machine</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="center-block">
+        <div class="cont">
         <p id='qtholder'>Press "Get Quote!</p>
-        <p id='author'></p>
-        <button id="btn-qt">Get quote!</button>
-        <button id="btn-tw">Tweet out!</button>
     </div>
-    <div id="er-disc">
+    <div class="cont">
+
+        <p id='author'></p>
+    </div>
+    <div class="cont">
+        <div class="icons">
+        <button id="btn-qt">Get quote!</button>
+    </div>
+        <div class="icons" style="float: right">
+        <button id="btn-tw" class="fa fa-twitter"></button>
+    </div>
+    </div>
+    </div>
+    <div id="er-disc" >
     </div>
 <script type="text/javascript"  src="scripts/quoter.js"></script>
 </body>

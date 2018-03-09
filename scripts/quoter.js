@@ -7,12 +7,25 @@ function ready(fn) {
 };
 
 function displayQuote(quote, author) {
-    document.getElementById("qtholder").innerHTML = quote;
+    document.getElementById("qtholder").innerHTML = '"' + quote + '"';
     document.getElementById("author").innerHTML = author;
 };
 
-function errorHandle() {
-    document.getElementById("er-disc").innerHTML = "Error 404";
+function errorHandle(status) {
+
+    if (status == 401){
+        document.getElementById("er-disc").innerHTML = "Authentication error occurred (" + status + ")";
+        document.getElementById("er-disc").style.display = "inline-block";
+    }
+    if (status == 404){
+        document.getElementById("er-disc").innerHTML = "Source link seems to be empty (" + status + ")";
+        document.getElementById("er-disc").style.display = "inline-block";
+    }
+    else if (status < 200 && status >= 400) {
+        document.getElementById("er-disc").innerHTML = "Error (" + status + ")";
+        document.getElementById("er-disc").style.display = "inline-block";
+    }
+
 }
 
 function getRandomQuotes(){
@@ -24,7 +37,8 @@ function getRandomQuotes(){
             var data = JSON.parse(this.response);
             displayQuote(data["quote"], data["author"])
         }else {
-            errorHandle();
+            errorHandle(request.status);
+            console.log(request.status);
         }
       };
     request.send();
@@ -43,9 +57,9 @@ function tweetQuote(){
     window.open(twtLink,'_blank');
 }
 function starter(){
-getRandomQuotes();
-document.getElementById("btn-qt").onclick = getRandomQuotes;
-document.getElementById("btn-tw").onclick = tweetQuote;
+    getRandomQuotes();
+    document.getElementById("btn-qt").onclick = getRandomQuotes;
+    document.getElementById("btn-tw").onclick = tweetQuote;
 }
 
 ready(starter);
